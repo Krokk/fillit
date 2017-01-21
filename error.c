@@ -6,7 +6,7 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/18 00:07:36 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/18 00:07:37 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/21 14:27:07 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	error_msg_exit(char *message)
 	exit(-1);
 }
 
-void error_msg(char *message)
-{	
+void	error_msg(char *message)
+{
 	if (message)
 		ft_putendl_fd(message, 2);
 }

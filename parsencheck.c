@@ -6,23 +6,23 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:29:42 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/18 01:26:57 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/21 14:35:29 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void	check_input_length(int lenght)
+void		check_input_length(int lenght)
 {
 	if (lenght == 0 || (lenght + 1) % 21 != 0)
 		error_msg_exit("Invalid lenght");
 }
 
-void	check_input_compo(char *str)
-{	
-	int i;
-	int count_dot;
-	int count_sharp;
+void		check_input_compo(char *str)
+{
+	int		i;
+	int		count_dot;
+	int		count_sharp;
 
 	count_dot = 0;
 	count_sharp = 0;
@@ -39,13 +39,12 @@ void	check_input_compo(char *str)
 		;
 	else
 		error_msg_exit("Input File invalid1");
-
 }
 
-void	check_input_newline(char *str)
+void		check_input_newline(char *str)
 {
-	int i;
-	int count;
+	int		i;
+	int		count;
 
 	count = 0;
 	i = 4;
@@ -59,10 +58,10 @@ void	check_input_newline(char *str)
 		error_msg_exit("Input file invalid2");
 }
 
-void	check_input_link(char *str)
+void		check_input_link(char *str)
 {
-	int i;
-	int link_count;
+	int		i;
+	int		link_count;
 
 	i = 0;
 	link_count = 0;
@@ -87,9 +86,9 @@ void	check_input_link(char *str)
 		error_msg_exit("Invalid Input File3");
 }
 
-void	ft_input_checker(char **grid)
+void		ft_input_checker(char **grid)
 {
-	int i;
+	int		i;
 
 	i = 0;
 	while (grid[i])

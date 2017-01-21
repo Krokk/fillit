@@ -6,16 +6,16 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:29:55 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/19 02:11:02 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/21 14:39:14 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char	**ft_clean_grid(char **grid,t_coor coord)
+char		**ft_clean_grid(char **grid, t_coor coord)
 {
-	int x;
-	int y;
+	int		x;
+	int		y;
 
 	y = 0;
 	while (grid[y])
@@ -32,10 +32,10 @@ char	**ft_clean_grid(char **grid,t_coor coord)
 	return (grid);
 }
 
-char	**ft_empty_grid(char **grid, int max)
+char		**ft_empty_grid(char **grid, int max)
 {
-	int x;
-	int y;
+	int		x;
+	int		y;
 
 	y = 0;
 	if (!(grid = (char **)malloc(sizeof(char *) * (max + 1))))
@@ -56,64 +56,36 @@ char	**ft_empty_grid(char **grid, int max)
 	return (grid);
 }
 
-
-
-   char	**ft_write(char **grid, t_coor coord)
-   {
-   int i;
-   int pos;
-   int g;
-
-   i = 0;
-   g = 0;
-   while (grid[i])
-   {
-   pos = 0;
-   while (grid[i][pos])
-   {
-   if (coord.x[g] == pos && coord.y[g] == i)
-   {
-   grid[i][pos] = coord.lettre;
-   g++;
-   }
-   pos++;
-   }
-   i++;
-   }
-   return (grid);
-   }
-/*
-char	**ft_write(char **tab, t_coor coord)
+char		**ft_write(char **grid, t_coor coord)
 {
-	int x;
-	int	y;
-	int i;
+	int		i;
+	int		pos;
+	int		g;
 
 	i = 0;
-	y = 0;
-	while (tab[y])
+	g = 0;
+	while (grid[i])
 	{
-		x = 0;
-		while	(tab[y][x])
+		pos = 0;
+		while (grid[i][pos])
 		{
-			if (coord.x[i] == x && coord.y[i] == y)
+			if (coord.x[g] == pos && coord.y[g] == i)
 			{
-				tab[y][x] = coord.lettre;
-				i++;
+				grid[i][pos] = coord.lettre;
+				g++;
 			}
-			x++;
+			pos++;
 		}
-		y++;
+		i++;
 	}
-	return (tab);
+	return (grid);
 }
-*/
 
-char	**ft_fill(char **grid, t_coor *coord, int count, int i)
+char		**ft_fill(char **grid, t_coor *coord, int count, int i)
 {
-	int x;
-	int y;
-	char **tmp;
+	int		x;
+	int		y;
+	char	**tmp;
 
 	y = 0;
 	if (i == count)
@@ -137,9 +109,9 @@ char	**ft_fill(char **grid, t_coor *coord, int count, int i)
 	return (NULL);
 }
 
-char	**ft_solveit(t_coor *coord, int max, int count)
+char		**ft_solveit(t_coor *coord, int max, int count)
 {
-	char **grid;
+	char	**grid;
 
 	grid = NULL;
 	while (!grid)

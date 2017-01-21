@@ -6,7 +6,7 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:29:48 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/18 20:14:58 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/21 14:40:05 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 char		*input_split(char *str)
 {
-	int i;
+	int		i;
 
 	i = 20;
 	while (str[i])
@@ -26,11 +26,11 @@ char		*input_split(char *str)
 	return (str);
 }
 
-char 		**read_input(char *str)
+char		**read_input(char *str)
 {
-	int fd;
-	char **grid;
-	char buf[BUF_SIZE + 1];
+	int		fd;
+	char	**grid;
+	char	buf[BUF_SIZE + 1];
 
 	fd = open(str, O_RDONLY);
 	if (fd == -1)

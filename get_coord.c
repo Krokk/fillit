@@ -6,17 +6,17 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:30:04 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/19 02:16:09 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/21 14:33:12 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-int	ft_check(char **grid, t_coor coord)
+int			ft_check(char **grid, t_coor coord)
 {
-	int y;
-	int x;
-	int i;
+	int		y;
+	int		x;
+	int		i;
 
 	y = 0;
 	i = 0;
@@ -38,61 +38,58 @@ int	ft_check(char **grid, t_coor coord)
 	return (1);
 }
 
-t_coor *ft_get_coord(char **grid, int count)
-	{
-		t_coor *result;
-		int i;
-		int pos;
-		int g;
-		char lettre;
+t_coor		*ft_get_coord(char **grid, int count)
+{
+	t_coor	*result;
+	int		i;
+	int		pos;
+	int		g;
+	char	lettre;
 
-		lettre = 'A';
-		i = 0;
-		result = (t_coor*)malloc(sizeof(t_coor) * count + 1);
-		while (grid[i])
+	lettre = 'A';
+	i = -1;
+	result = (t_coor*)malloc(sizeof(t_coor) * count + 1);
+	while (grid[++i])
+	{
+		result[i].lettre = lettre++;
+		g = 0;
+		pos = 0;
+		while (grid[i][pos])
 		{
-			result[i].lettre = lettre++;
-			g = 0;
-			pos = 0;
-			while (grid[i][pos])
+			if (grid[i][pos] == '#')
 			{
-				if (grid[i][pos] == '#')
-				{
-					result[i].x[g] = pos % 5;
-					result[i].y[g] = pos / 5;
-					g++;
-				}
-				pos++;
+				result[i].x[g] = pos % 5;
+				result[i].y[g++] = pos / 5;
 			}
-			i++;
+			pos++;
 		}
-		return (result);
 	}
+	return (result);
+}
 
-	t_coor	ft_update_coord(t_coor coord, int x, int y)
+t_coor		ft_update_coord(t_coor coord, int x, int y)
+{
+	int		xmin;
+	int		ymin;
+	int		i;
+
+	xmin = 500;
+	ymin = 500;
+	i = 0;
+	while (i < 4)
 	{
-		int xmin;
-		int	ymin;
-		int i;
-
-		xmin = 500;
-		ymin = 500;
-		i = 0;
-		while (i < 4)
-		{
-			if (coord.x[i] < xmin)
-				xmin = coord.x[i];
-			if (coord.y[i] < ymin)
-				ymin = coord.y[i];
-			i++;
-		}
-		i = 0;
-		while (i < 4)
-		{
-			coord.x[i] = coord.x[i] - xmin + x;
-			coord.y[i] = coord.y[i] - ymin + y;
-			i++;
-		}
-		return (coord);
-
+		if (coord.x[i] < xmin)
+			xmin = coord.x[i];
+		if (coord.y[i] < ymin)
+			ymin = coord.y[i];
+		i++;
 	}
+	i = 0;
+	while (i < 4)
+	{
+		coord.x[i] = coord.x[i] - xmin + x;
+		coord.y[i] = coord.y[i] - ymin + y;
+		i++;
+	}
+	return (coord);
+}
