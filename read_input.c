@@ -6,13 +6,13 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:29:48 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/21 14:40:05 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/25 20:40:30 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-char		*input_split(char *str)
+char		*ft_input_split(char *str)
 {
 	int		i;
 
@@ -26,7 +26,7 @@ char		*input_split(char *str)
 	return (str);
 }
 
-char		**read_input(char *str)
+char		**ft_read_input(char *str)
 {
 	int		fd;
 	char	**grid;
@@ -34,11 +34,11 @@ char		**read_input(char *str)
 
 	fd = open(str, O_RDONLY);
 	if (fd == -1)
-	{
-		error_msg_exit("Read error");
-	}
+		ft_error_msg_exit("error");
 	read(fd, buf, BUF_SIZE);
-	input_split(buf);
+	if (ft_strlen(buf) == 0)
+		ft_error_msg_exit("error");
+	ft_input_split(buf);
 	grid = ft_strsplit(buf, '@');
 	return (grid);
 }

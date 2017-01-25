@@ -6,7 +6,7 @@
 #    By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/01/18 00:39:27 by rfabre            #+#    #+#              #
-#    Updated: 2017/01/18 01:20:32 by rfabre           ###   ########.fr        #
+#    Updated: 2017/01/25 20:42:41 by rfabre           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,7 +31,6 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 		$(CC) -g  $(OBJ) $(LIB) -o $(NAME)
-			#@./fillit valid_sample_file
 
 clean:
 		/bin/rm -f $(OBJ)

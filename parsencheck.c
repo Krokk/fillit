@@ -6,19 +6,19 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 23:29:42 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/21 14:35:29 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/25 20:34:04 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-void		check_input_length(int lenght)
+void		ft_check_input_length(int lenght)
 {
 	if (lenght == 0 || (lenght + 1) % 21 != 0)
-		error_msg_exit("Invalid lenght");
+		ft_error_msg_exit("error");
 }
 
-void		check_input_compo(char *str)
+void		ft_check_input_compo(char *str)
 {
 	int		i;
 	int		count_dot;
@@ -38,10 +38,10 @@ void		check_input_compo(char *str)
 	if (count_dot == 12 && count_sharp == 4)
 		;
 	else
-		error_msg_exit("Input File invalid1");
+		ft_error_msg_exit("error");
 }
 
-void		check_input_newline(char *str)
+void		ft_check_input_newline(char *str)
 {
 	int		i;
 	int		count;
@@ -55,10 +55,10 @@ void		check_input_newline(char *str)
 		i += 5;
 	}
 	if (count != 4)
-		error_msg_exit("Input file invalid2");
+		ft_error_msg_exit("error");
 }
 
-void		check_input_link(char *str)
+void		ft_check_input_link(char *str)
 {
 	int		i;
 	int		link_count;
@@ -83,7 +83,7 @@ void		check_input_link(char *str)
 	if (link_count == 6 || link_count == 8)
 		;
 	else
-		error_msg_exit("Invalid Input File3");
+		ft_error_msg_exit("error");
 }
 
 void		ft_input_checker(char **grid)
@@ -93,10 +93,10 @@ void		ft_input_checker(char **grid)
 	i = 0;
 	while (grid[i])
 	{
-		check_input_length(ft_strlen(grid[i]));
-		check_input_compo(grid[i]);
-		check_input_newline(grid[i]);
-		check_input_link(grid[i]);
+		ft_check_input_length(ft_strlen(grid[i]));
+		ft_check_input_compo(grid[i]);
+		ft_check_input_newline(grid[i]);
+		ft_check_input_link(grid[i]);
 		i++;
 	}
 }

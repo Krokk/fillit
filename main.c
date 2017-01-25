@@ -6,7 +6,7 @@
 /*   By: rfabre <rfabre@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/01/17 20:42:01 by rfabre            #+#    #+#             */
-/*   Updated: 2017/01/21 14:25:46 by rfabre           ###   ########.fr       */
+/*   Updated: 2017/01/25 20:41:11 by rfabre           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,7 @@ int			ft_tetri_count(char **grid)
 
 	i = 0;
 	while (grid[i])
-	{
 		i++;
-	}
 	return (i);
 }
 
@@ -57,10 +55,10 @@ int			main(int argc, char **argv)
 
 	i = 0;
 	if (argc != 2)
-		ft_putstr("Invalid Input File");
+		ft_putstr("Fillit usage : ./fillit sample_file\n");
 	else
 	{
-		grid = read_input(argv[1]);
+		grid = ft_read_input(argv[1]);
 		ft_input_checker(grid);
 		tetrinbr = ft_tetri_count(grid);
 		coord = ft_get_coord(grid, tetrinbr);
